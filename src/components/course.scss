@@ -1,0 +1,99 @@
+.course {
+    * {
+        user-select: none;
+    }
+    margin: 1rem;
+    padding: 1rem;
+    width: max-content;
+    box-shadow: #00000033 0px 0px 15px;
+    background: white;
+    .title {
+        strong {
+            font-weight: 800;
+        }
+        font-size: x-large;
+        margin-bottom: 0.5rem;
+    }
+    &.closed {
+        border-left: solid 10px red;
+    }
+    &.open {
+        border-left: solid 10px green;
+    }
+    .detail {
+        display: flex;
+        flex-direction: column;
+        font-size: large;
+        .line1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            min-height: 3rem;
+        }
+        .line2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+            .enrollable {
+                background: #5cff5c;
+                box-shadow: #5cff5c 0px 0px 10px;
+                color: black;
+                font-weight: 600;
+                &:hover {
+                    background: #00ff00;
+                    box-shadow: #5cff5c 0px 0px 20px;
+                }
+                transition: box-shadow 0.5s ease, background-color 0.5s ease;
+            }
+            .buttons {
+                > * {
+                    margin-left: 1rem;
+                }
+            }
+        }
+        .spec {
+            color: #444;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-top: -0.5rem;
+        }
+        .enrollment {
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            &.closed {
+                background: #ffcdcd;
+                span {
+                    color: red;
+                }
+            }
+            &.open {
+                background: #c1ffc1;
+                span {
+                    color: #5cff5c;
+                }
+            }
+            span {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+button {
+    padding: 0.75rem;
+    background: #eee;
+    border: none;
+    
+    border-radius: 0.5rem;
+    &:not(.disabled) {
+        &:hover {
+            background: #ddd;
+        }
+        &:active {
+            background: #ccc;
+        }
+        transition: background-color 0.5s ease;       
+    }
+}

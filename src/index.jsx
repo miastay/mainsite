@@ -12,6 +12,9 @@ import {
   Link,
 } from "react-router-dom";
 import Home from './pages/home';
+import Auth from './pages/auth';
+import { isSignedIn } from './firestore';
+import UserCourses from './pages/usercourses';
 
 const router = createBrowserRouter([
   {
@@ -21,13 +24,22 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/courses",
+    element: (
+      <UserCourses />
+    ),
+  },
+  {
     path: "about",
     element: <div>About</div>,
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+    <>
+        {!isSignedIn() && <Auth />}
+        {isSignedIn() && <RouterProvider router={router} />}
+    </>
 );
 
 
