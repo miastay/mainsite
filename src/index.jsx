@@ -12,21 +12,12 @@ import {
   Link,
 } from "react-router-dom";
 import Home from './pages/home';
-import Auth from './pages/auth';
-import { isSignedIn } from './firestore';
-import UserCourses from './pages/usercourses';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <Home />
-    ),
-  },
-  {
-    path: "/courses",
-    element: (
-      <UserCourses />
     ),
   },
   {
@@ -37,8 +28,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
     <>
-        {!isSignedIn() && <Auth />}
-        {isSignedIn() && <RouterProvider router={router} />}
+        <RouterProvider router={router} />
     </>
 );
 
